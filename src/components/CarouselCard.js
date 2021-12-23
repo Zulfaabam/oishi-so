@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
+import Loading from './Loading'
+
 // import Cookies from 'js-cookie'
 
 export default function CarouselCard() {
@@ -29,18 +31,21 @@ export default function CarouselCard() {
 
     getCarouselImg()
   }, [])
+
   return (
     <div>
       <Carousel autoPlay showThumbs={false} showStatus={false} infiniteLoop>
-        {carouselImg === undefined
-          ? 'Loading'
-          : carouselImg.map((img) => {
-              return (
-                <div key={img.id} className="">
-                  <img src={img.image_url} alt="" className="object-cover" />
-                </div>
-              )
-            })}
+        {carouselImg === undefined ? (
+          <Loading />
+        ) : (
+          carouselImg.map((img) => {
+            return (
+              <div key={img.id} className="h-48">
+                <img src={img.image_url} alt="" className="h-full" />
+              </div>
+            )
+          })
+        )}
       </Carousel>
     </div>
   )

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { AiFillStar } from 'react-icons/ai'
+import { MdOutlineSort } from 'react-icons/md'
+import Loading from './Loading'
 
 export default function Restaurants() {
   const [restaurant, setRestaurant] = useState()
@@ -33,23 +35,50 @@ export default function Restaurants() {
 
   return (
     <div>
-      <h1>restaurants</h1>
-      {restaurant === undefined
-        ? 'Loading'
-        : restaurant.map((r) => {
+      <div className="flex gap-2 mb-8">
+        <MdOutlineSort size="1.5rem" className="text-dark-60" />
+        <form>
+          <label htmlFor="sort" className="text-dark-60 font-medium">
+            Sort by
+          </label>
+          <select
+            name="sort"
+            id="sort"
+            className="bg-transparent cursor-pointer text-dark-60 font-medium"
+          >
+            <option value="lowest">Lowest</option>
+            <option value="highest">Highest</option>
+          </select>
+        </form>
+      </div>
+      <div className="space-y-6">
+        {restaurant === undefined ? (
+          <Loading />
+        ) : (
+          restaurant.map((r) => {
             return (
-              <div key={r.id}>
-                <img src={r.image_url} alt={r.name} />
-                <h2>{r.name}</h2>
-                <p>{r.cuisine}</p>
-                <p>
-                  <AiFillStar size="1.5rem" color="#FFCC00" />{' '}
-                  <strong>{r.user_rating.rating}</strong> (
-                  {r.user_rating.total_reviews} reviews)
-                </p>
+              <div key={r.id} className="flex gap-4">
+                <img
+                  src={r.image_url}
+                  alt={r.name}
+                  className="w-40 rounded-lg"
+                />
+                <div className="flex flex-col justify-center">
+                  <h2 className="font-bold text-dark-70">{r.name}</h2>
+                  <p className="text-xs text-dark-50">{r.cuisine}</p>
+                  <div className="flex gap-1 items-center">
+                    <AiFillStar color="#FFCC00" />
+                    <strong className="text-sm">{r.user_rating.rating}</strong>
+                    <p className="text-xs text-dark-50">
+                      ({r.user_rating.total_reviews} reviews)
+                    </p>
+                  </div>
+                </div>
               </div>
             )
-          })}
+          })
+        )}
+      </div>
     </div>
   )
 }
