@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { AiFillStar } from 'react-icons/ai'
-import { MdOutlineSort } from 'react-icons/md'
+
 import Loading from './Loading'
 
 export default function Restaurants() {
@@ -35,23 +35,7 @@ export default function Restaurants() {
 
   return (
     <div>
-      <div className="flex gap-2 mb-8">
-        <MdOutlineSort size="1.5rem" className="text-dark-60" />
-        <form>
-          <label htmlFor="sort" className="text-dark-60 font-medium">
-            Sort by
-          </label>
-          <select
-            name="sort"
-            id="sort"
-            className="bg-transparent cursor-pointer text-dark-60 font-medium"
-          >
-            <option value="lowest">Lowest</option>
-            <option value="highest">Highest</option>
-          </select>
-        </form>
-      </div>
-      <div className="space-y-6">
+      <div className="space-y-6 md:grid md:grid-cols-2 md:space-y-0 md:gap-8 lg:grid-cols-3">
         {restaurant === undefined ? (
           <Loading />
         ) : (
@@ -61,11 +45,13 @@ export default function Restaurants() {
                 <img
                   src={r.image_url}
                   alt={r.name}
-                  className="w-40 rounded-lg"
+                  className="w-40 h-[100px] rounded-lg "
                 />
                 <div className="flex flex-col justify-center">
-                  <h2 className="font-bold text-dark-70">{r.name}</h2>
-                  <p className="text-xs text-dark-50">{r.cuisine}</p>
+                  <h2 className="font-bold text-dark-70 md:text-lg">
+                    {r.name}
+                  </h2>
+                  <p className="text-xs text-dark-50 md:text-sm">{r.cuisine}</p>
                   <div className="flex gap-1 items-center">
                     <AiFillStar color="#FFCC00" />
                     <strong className="text-sm">{r.user_rating.rating}</strong>

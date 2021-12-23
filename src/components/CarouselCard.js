@@ -33,15 +33,19 @@ export default function CarouselCard() {
   }, [])
 
   return (
-    <div>
+    <div className="max-w-6xl md:px-6 mx-auto">
       <Carousel autoPlay showThumbs={false} showStatus={false} infiniteLoop>
         {carouselImg === undefined ? (
           <Loading />
         ) : (
           carouselImg.map((img) => {
             return (
-              <div key={img.id} className="h-48">
-                <img src={img.image_url} alt="" className="h-full" />
+              <div key={img.id} className="h-48 md:h-80 md:rounded-lg">
+                <img
+                  src={img.image_url}
+                  alt=""
+                  className="h-full md:object-cover md:rounded-lg"
+                />
               </div>
             )
           })
