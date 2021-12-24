@@ -16,16 +16,16 @@ export default function Footer() {
         </h1>
       </div>
       <div>
-        <p className="text-white text-center text-2xl">
+        <p className="text-white text-center md:text-2xl">
           The only thing we are serious about is food.
         </p>
-        <p className="text-white text-center text-2xl">Contact us on</p>
+        <p className="text-white text-center md:text-2xl">Contact us on</p>
       </div>
       <div className="text-white flex justify-center gap-6">
-        <FaPinterestSquare className="text-2xl md:text-5xl" />
-        <FaInstagram className="text-2xl md:text-5xl" />
-        <FaTwitter className="text-2xl md:text-5xl" />
-        <FaFacebookSquare className="text-2xl md:text-5xl" />
+        <FaPinterestSquare className="text-2xl md:text-5xl cursor-pointer" />
+        <FaInstagram className="text-2xl md:text-5xl cursor-pointer" />
+        <FaTwitter className="text-2xl md:text-5xl cursor-pointer" />
+        <FaFacebookSquare className="text-2xl md:text-5xl cursor-pointer" />
       </div>
     </footer>
   )
