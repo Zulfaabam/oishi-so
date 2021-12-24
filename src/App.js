@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import { createBrowserHistory } from 'history'
 import RestaurantDetails from './pages/RestaurantDetails'
+import PaymentSuccessful from './pages/PaymentSuccessful'
 
 const history = createBrowserHistory()
 
@@ -20,6 +21,7 @@ function App() {
             path="/restaurant/:restaurantId"
             element={<RestaurantDetails />}
           />
+          <Route path="/payment-successful" element={<PaymentSuccessful />} />
         </Routes>
       </div>
     </Router>
