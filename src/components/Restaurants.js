@@ -49,7 +49,7 @@ export default function Restaurants({ history }) {
                   <img
                     src={r.image_url}
                     alt={r.name}
-                    className="w-40 h-[100px] rounded-lg "
+                    className="w-40 h-[100px] object-cover rounded-lg "
                   />
                 </NavLink>
                 <div className="flex flex-col justify-center">
