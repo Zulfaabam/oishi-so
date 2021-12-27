@@ -35,7 +35,7 @@ export default function Navbar() {
           </NavLink>
         </div>
         <div className="cursor-pointer" onClick={() => closeMenu()}>
-          <RiCloseCircleFill size="1.5rem" />
+          <RiCloseCircleFill className="text-2xl" />
         </div>
       </div>
     )
@@ -44,12 +44,12 @@ export default function Navbar() {
   return (
     <nav className="w-full relative bg-white">
       <div className="max-w-6xl flex justify-between items-center px-6 py-4 mx-auto">
-        <div className="flex items-center gap-2">
+        <NavLink to="/" className="flex items-center gap-2">
           <img src="/logo.png" alt="website logo" />
           <h1 className="text-2xl font-bold italic text-primary">Oishi-so</h1>
-        </div>
+        </NavLink>
         <div className="cursor-pointer sm:hidden" onClick={() => openMenu()}>
-          <GiHamburgerMenu size="1.5rem" />
+          <GiHamburgerMenu className="text-2xl" />
         </div>
         <div className="hidden sm:flex gap-6 items-center">
           <NavLink to="/" className="font-medium text-dark-70">

@@ -12,7 +12,7 @@ export default function Sort({ sortOption, sortByOptions, updateOption }) {
         Select Your favourite restaurant special dish and make your day happy...
       </p>
       <div className="flex gap-2 mb-8 sm:mb-0">
-        <MdOutlineSort size="1.5rem" className="text-dark-60" />
+        <MdOutlineSort className="text-dark-60 text-2xl" />
         <form>
           <label htmlFor="sort" className="text-dark-60 font-medium">
             Sort by

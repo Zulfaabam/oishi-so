@@ -107,16 +107,14 @@ export default function Restaurants({ history }) {
       </div>
       <div className="flex gap-2 justify-center mt-8">
         <AiOutlineLeftSquare
-          size="1.5rem"
-          className="cursor-pointer"
+          className="cursor-pointer text-2xl"
           onClick={() =>
             activePage === 1 ? null : setActivePage(activePage - 1)
           }
         />{' '}
         {activePage} / 4{' '}
         <AiOutlineRightSquare
-          size="1.5rem"
-          className="cursor-pointer"
+          className="cursor-pointer text-2xl"
           onClick={() =>
             activePage === 4 ? null : setActivePage(activePage + 1)
           }

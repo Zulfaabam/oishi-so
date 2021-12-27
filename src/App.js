@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import { createBrowserHistory } from 'history'
 import RestaurantDetails from './pages/RestaurantDetails'
-import PaymentSuccessful from './pages/PaymentSuccessful'
 import { CartContext } from './context/CartContext'
 
 const history = createBrowserHistory()
@@ -109,7 +108,7 @@ function App() {
               path="/restaurant/:restaurantId"
               element={<RestaurantDetails />}
             />
-            <Route path="/payment-successful" element={<PaymentSuccessful />} />
+            {/* <Route path="/payment-successful" element={<PaymentSuccessful />} /> */}
           </Routes>
         </div>
       </CartContext.Provider>

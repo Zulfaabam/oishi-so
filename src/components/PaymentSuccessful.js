@@ -1,6 +1,5 @@
 import React from 'react'
 import { BsFillCheckCircleFill } from 'react-icons/bs'
-import Navbar from '../components/Navbar'
 import { NavLink } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
 
@@ -16,7 +15,6 @@ export default function PaymentSuccessful() {
 
         return (
           <div>
-            <Navbar />
             <div className="flex flex-col justify-center items-center my-16">
               <BsFillCheckCircleFill
                 color="#22C55e"

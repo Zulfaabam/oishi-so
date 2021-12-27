@@ -43,7 +43,7 @@ export default function CarouselCard() {
               <div key={img.id} className="h-48 md:h-80 md:rounded-lg">
                 <img
                   src={img.image_url}
-                  alt=""
+                  alt="carousel"
                   className="h-full md:object-cover md:rounded-lg"
                 />
               </div>
