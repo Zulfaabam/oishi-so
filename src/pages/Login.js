@@ -1,7 +1,10 @@
 import React from 'react'
 import { Formik, Field, Form } from 'formik'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
+  const navigate = useNavigate()
+
   return (
     <div id="login" className="h-full">
       <div className="flex flex-col gap-7 lg:flex-row-reverse lg:justify-between lg:gap-0">
@@ -39,7 +42,8 @@ export default function Login() {
             }}
             onSubmit={async (values) => {
               await new Promise((r) => setTimeout(r, 500))
-              alert(JSON.stringify(values, null, 2))
+              // alert(JSON.stringify(values, null, 2))
+              navigate('/')
             }}
           >
             <Form className="px-6 flex flex-col max-w-[360px] mx-auto">
