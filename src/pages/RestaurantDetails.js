@@ -27,9 +27,29 @@ export default function RestaurantDetails() {
         )
         // console.log(res)
         // console.log(res.data)
-        setRestaurant(res.data)
+        setRestaurant({
+          costForTwo: res.data.cost_for_two,
+          cuisine: res.data.cuisine,
+          id: res.data.id,
+          imageUrl: res.data.image_url,
+          itemsCount: res.data.items_count,
+          location: res.data.location,
+          name: res.data.name,
+          opensAt: res.data.opens_at,
+          rating: res.data.rating,
+          reviews: res.data.reviews_count,
+        })
         // console.log(res.data.food_items)
-        setFood(res.data.food_items)
+        setFood(
+          res.data.food_items.map((f) => ({
+            cost: f.cost,
+            foodType: f.food_type,
+            id: f.id,
+            imageUrl: f.image_url,
+            name: f.name,
+            rating: f.rating,
+          }))
+        )
       } catch (err) {
         console.error(err)
       }
@@ -45,31 +65,15 @@ export default function RestaurantDetails() {
         {restaurant === undefined ? (
           <Loading />
         ) : (
-          <RestaurantBanner
-            image={restaurant.image_url}
-            name={restaurant.name}
-            cuisine={restaurant.cuisine}
-            location={restaurant.location}
-            rating={restaurant.rating}
-            reviews={restaurant.reviews_count}
-            costForTwo={restaurant.cost_for_two}
-          />
+          <RestaurantBanner restaurantItem={restaurant} />
         )}
       </div>
       <div className="space-y-6 md:grid md:grid-cols-2 md:space-y-0 md:gap-8 px-4 mb-12 max-w-6xl md:px-6 mx-auto">
         {food === undefined ? (
           <Loading />
         ) : (
-          food.map((f) => {
-            return (
-              <Foods
-                key={f.id}
-                image={f.image_url}
-                name={f.name}
-                cost={f.cost}
-                rating={f.rating}
-              />
-            )
+          food.map((item) => {
+            return <Foods key={item.id} foodItem={item} />
           })
         )}
       </div>

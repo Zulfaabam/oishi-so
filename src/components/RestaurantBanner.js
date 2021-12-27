@@ -1,21 +1,16 @@
 import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 
-export default function RestaurantBanner({
-  image,
-  name,
-  cuisine,
-  location,
-  rating,
-  reviews,
-  costForTwo,
-}) {
+export default function RestaurantBanner({ restaurantItem }) {
+  const { imageUrl, name, cuisine, location, rating, reviews, costForTwo } =
+    restaurantItem
+
   return (
     <div className="bg-[#333] h-48 flex justify-center items-center gap-4 overflow-hidden md:h-80 2xl:h-96 md:px-6">
       <img
-        src={image}
-        alt="restaurant"
-        className="rounded-full lg:rounded-lg w-56 lg:w-80 xl:w-96 2xl:w-[445px] -ml-16 -mt-14 md:mt-0 md:ml-0 aspect-square lg:aspect-auto"
+        src={imageUrl}
+        alt={name}
+        className="rounded-full object-cover lg:rounded-lg w-56 lg:w-80 xl:w-96 2xl:w-[445px] -ml-16 -mt-14 md:mt-0 md:ml-0 aspect-square lg:aspect-auto"
       />
       <div className="text-white">
         <div className="space-y-2 mb-4">
