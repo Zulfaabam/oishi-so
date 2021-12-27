@@ -8,7 +8,7 @@ export default function CartListView() {
   const [isOrderPlaced, setIsOrderPlaced] = useState(false)
 
   const orderPlaced = () => {
-    setIsOrderPlaced((prevState) => isOrderPlaced(!prevState))
+    setIsOrderPlaced(!isOrderPlaced)
   }
 
   return (

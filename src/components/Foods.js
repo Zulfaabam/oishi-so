@@ -8,9 +8,15 @@ import { CartContext } from '../context/CartContext'
 
 export default function Foods({ foodItem }) {
   const [quantity, setQuantity] = useState(0)
+
   return (
     <CartContext.Consumer>
-      {(addCartItem, incrementCartItemQuantity, decrementCartItemQuantity) => {
+      {(value) => {
+        const {
+          addCartItem,
+          incrementCartItemQuantity,
+          decrementCartItemQuantity,
+        } = value
         const { id, imageUrl, name, cost, rating } = foodItem
 
         const onClickAdd = () => {

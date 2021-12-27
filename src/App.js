@@ -20,7 +20,7 @@ const getCartListFromLocalStorage = () => {
 }
 
 function App() {
-  const [cartList, setCartList] = useState(getCartListFromLocalStorage())
+  const [cartList, setCartList] = useState(getCartListFromLocalStorage)
 
   const removeAllCartItems = () => {
     setCartList([])
